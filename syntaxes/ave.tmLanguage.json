@@ -20,7 +20,12 @@
 			"patterns": [{
 				"name": "keyword.control.ave",
 				"match": "\\b(__GAMEOVER__|__WINNER__|__R__|__PYTHON__|__APP__|__WEB__|__BADGE__|__NUMBER__)\\b"
-			}]
+			},
+			{
+				"name": "keyword.control.ave",
+				"match": "\\<newline\\>"
+			}
+		]
 		},
 		"operators": {
 			"name": "storage.ave",
@@ -46,11 +51,11 @@
 				"0": { "name": "storage.ave" }
 			  },
 			"patterns": [
+				{ "include": "#items" },
 				{ "include": "#keywords" },
 				{ "include": "#maths_operators" },
 				{ "include": "#numbers" },
-				{ "include": "#not" },
-				{ "include": "#items" }
+				{ "include": "#not" }
 			]
 		},
 		"maths_operators": {
