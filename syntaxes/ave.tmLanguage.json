@@ -13,6 +13,9 @@
 		},
 		{
 			"include": "#keywords"
+		},
+		{
+			"include": "#item_numbers"
 		}
 	],
 	"repository": {
@@ -71,6 +74,17 @@
 		"not": {
 			"name": "storage.ave",
 			"match": "\\!"
+		},
+		"item_numbers": {
+			"name": "meta.type.cast.expr",
+			"begin": "\\$",
+			"end": "\\$",
+			"beginCaptures": {
+				"0": { "name": "storage.ave" }
+			  },
+			  "endCaptures": {
+				"0": { "name": "storage.ave" }
+			  }
 		}
 	},
 	"scopeName": "source.ave"
