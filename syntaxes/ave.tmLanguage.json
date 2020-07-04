@@ -40,7 +40,9 @@
 			  },
 			"patterns": [
 				{ "include": "#keywords" },
-				{ "include": "#items" }
+				{ "include": "#items" },
+				{ "include": "#numbers" },
+				{ "include": "#maths_operators"}
 			]
 		},
 		"items": {
@@ -60,7 +62,7 @@
 		},
 		"maths_operators": {
 			"name": "entity.name.label",
-			"match": "(\\<|\\=|\\>)"
+			"match": "(\\<|\\=|\\>|\\(|\\)|\\]|\\[|,)"
 		},
 		"numbers": {
 			"name": "constant.numeric",
