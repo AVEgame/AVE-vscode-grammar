@@ -3,9 +3,6 @@
 	"name": "ave",
 	"patterns": [
 		{
-			"include": "#strings"
-		},
-		{
 			"include": "#operators"
 		},
 		{
@@ -25,17 +22,6 @@
 				"match": "\\b(__GAMEOVER__|__WINNER__|__R__|__PYTHON__|__APP__|__WEB__|__BADGE__|__NUMBER__)\\b"
 			}]
 		},
-		"strings": {
-			"name": "string.quoted.double.ave",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.ave",
-					"match": "\\\\."
-				}
-			]
-		},
 		"operators": {
 			"name": "storage.ave",
 			"match": "(\\s|^)(\\@\\@|\\=\\=|\\*\\*|--)\\s"
@@ -43,20 +29,41 @@
 		"rooms": {
 			"name": "variable.ave",
 			"begin": "(#|\\=\\>)\\W+",
-			"end": "(?![A-Za-z_])",
+			"end": "$",
 			"beginCaptures": {
 				"0": { "name": "storage.ave" }
 			  },
-			"patterns": [{ "include": "#keywords" }]
+			"patterns": [
+				{ "include": "#keywords" },
+				{ "include": "#items" }
+			]
 		},
 		"items": {
 			"name": "meta.type.cast.expr",
-			"begin": "(\\+|%|\\+|\\W\\?|\\?\\!|~)\\W+",
-			"end": "(?![A-Za-z_])",
+			"begin": "(\\+|\\%|\\+|\\W\\?|\\?\\!|~)",
+			"end": "$",
 			"beginCaptures": {
 				"0": { "name": "storage.ave" }
 			  },
-			"patterns": [{ "include": "#keywords" }]
+			"patterns": [
+				{ "include": "#keywords" },
+				{ "include": "#maths_operators" },
+				{ "include": "#numbers" },
+				{ "include": "#not" },
+				{ "include": "#items" }
+			]
+		},
+		"maths_operators": {
+			"name": "entity.name.label",
+			"match": "(\\<|\\=|\\>)"
+		},
+		"numbers": {
+			"name": "constant.numeric",
+			"match": "\\b[0-9\\.]+\\b"
+		},
+		"not": {
+			"name": "storage.ave",
+			"match": "\\!"
 		}
 	},
 	"scopeName": "source.ave"
