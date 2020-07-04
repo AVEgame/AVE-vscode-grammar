@@ -1,0 +1,63 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "ave",
+	"patterns": [
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#rooms"
+		},
+		{
+			"include": "#items"
+		},
+		{
+			"include": "#keywords"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.ave",
+				"match": "\\b(__GAMEOVER__|__WINNER__|__R__|__PYTHON__|__APP__|__WEB__|__BADGE__|__NUMBER__)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.ave",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.ave",
+					"match": "\\\\."
+				}
+			]
+		},
+		"operators": {
+			"name": "storage.ave",
+			"match": "(\\s|^)(\\@\\@|\\=\\=|\\*\\*|--)\\s"
+		},
+		"rooms": {
+			"name": "variable.ave",
+			"begin": "(#|\\=\\>)\\W+",
+			"end": "(?![A-Za-z_])",
+			"beginCaptures": {
+				"0": { "name": "storage.ave" }
+			  },
+			"patterns": [{ "include": "#keywords" }]
+		},
+		"items": {
+			"name": "meta.type.cast.expr",
+			"begin": "(\\+|%|\\+|\\W\\?|\\?\\!|~)\\W+",
+			"end": "(?![A-Za-z_])",
+			"beginCaptures": {
+				"0": { "name": "storage.ave" }
+			  },
+			"patterns": [{ "include": "#keywords" }]
+		}
+	},
+	"scopeName": "source.ave"
+}

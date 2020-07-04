@@ -1,0 +1,25 @@
+{
+    "name": "ave-language",
+    "displayName": "AVE-Language",
+    "description": "Syntax highlighting for ave game files",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.46.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "ave",
+            "aliases": ["ave", "ave"],
+            "extensions": [".ave"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "ave",
+            "scopeName": "source.ave",
+            "path": "./syntaxes/ave.tmLanguage.json"
+        }]
+    }
+}
