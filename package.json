@@ -2,6 +2,8 @@
     "name": "ave-language",
     "displayName": "AVE-Language",
     "description": "Syntax highlighting for ave game files",
+    "publisher": "AVEGame",
+    "icon": "icon.png",
     "repository": {
         "type": "git",
         "url": "https://github.com/AVEgame/AVE-vscode-grammar"
